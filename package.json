@@ -18,5 +18,6 @@
   "homepage": "https://github.com/L3n1ad/OutdoorsCSS#readme",
   "devDependencies": {
     "node-sass": "^4.13.1"
-  }
+  },
+  "dependencies": {}
 }
