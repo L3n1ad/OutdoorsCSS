@@ -1,0 +1,62 @@
+.row {
+    max-width: $grid-width;
+    background-color: rgb(211, 211, 211);
+    margin: 0 auto;
+
+    // not sudo class
+    // without not it would simply select :last-child element in this case the last row element
+    // with :not we select everything expect the :last-child
+    &:not(:last-child){
+        margin-bottom: $gutter-vertical;
+    }
+
+    @include clearfix;
+
+    // within [] brackets we can put attributes as a selector
+    // in the case below it would select every element which has alt="Logo" attribute
+    // [alt="Logo"]{}
+
+    // the below example ^ the selector will select every element which has a class starting with "col-
+    // [class^="col-"] {}
+
+    // * would mean to select every class which includes "col-" example below
+    // [class*="col-"] {}
+
+    // $ would mean to select every class which ends to "col-" example below
+    // [class$="col-"] {}
+
+    [class^="col-"] {
+        background-color: $color-primary;
+        float: left;
+
+        &:not(:last-child){
+            margin-right: $gutter-horizontal;
+        }
+    }
+
+    .col-1-of-2 {
+        // in calc() you can make calculations and you can mix units
+        // sass variable needs to be wrapped in #{} to be able to use them in calculations
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+    }
+
+    .col-1-of-3 {
+        width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+    }
+
+    .col-2-of-3 {
+        width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+    }
+
+    .col-1-of-4 {
+        width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+    }
+
+    .col-2-of-4 {
+        width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+    }
+
+    .col-3-of-4 {
+        width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) +  2 * #{$gutter-horizontal});
+    }
+}
