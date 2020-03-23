@@ -44,7 +44,7 @@ body {
   transform: translate(-50%, -50%); }
 
 .heading-primary {
-  color: #ffffff;
+  color: #fff;
   text-transform: uppercase;
   /* fixing shaking in animation move to the top */
   backface-visibility: hidden;
@@ -87,7 +87,7 @@ body {
     opacity: 0;
     transform: translateX(10rem); }
   80% {
-    transform: translatex(-1rem); }
+    transform: translateX(-1rem); }
   100% {
     opacity: 1;
     transform: translate(0); } }
@@ -108,14 +108,15 @@ body {
   display: inline-block;
   border-radius: 10rem;
   transition: all .2s;
-  position: relative; }
+  position: relative;
+  font-size: 1.6rem; }
 
 .btn:hover {
-  transform: translateY(-0.3rem);
+  transform: translateY(-0.3px);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
 
 .btn:active {
-  transform: translateY(-0.1rem);
+  transform: translateY(-0.1px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
 
 .btn--white {
@@ -134,7 +135,7 @@ body {
   z-index: -1;
   transition: all .4s; }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff; }
 
 .btn:hover::after {
@@ -142,5 +143,5 @@ body {
   opacity: 0; }
 
 .btn--animated {
-  animation: moveInBottom .5s ease-out .5s;
+  animation: moveInBottom .5s ease-out .75s;
   animation-fill-mode: backwards; }
