@@ -1,6 +1,5 @@
 .row {
     max-width: $grid-width;
-    background-color: rgb(211, 211, 211);
     margin: 0 auto;
 
     // not sudo class
@@ -26,7 +25,6 @@
     // [class$="col-"] {}
 
     [class^="col-"] {
-        background-color: $color-primary;
         float: left;
 
         &:not(:last-child){
