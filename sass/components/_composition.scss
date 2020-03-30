@@ -1,0 +1,41 @@
+.composition{
+    // it needs to set relative so __photo position absolute reference will be the top left corner of this element
+    position: relative;
+    &__photo{
+        width: 55%;
+        box-shadow: 0 1.4rem 4rem rgba($color-black, .4);
+        position: absolute;
+        z-index: 10;
+        transition: all .2s;
+        outline-offset: 2rem;
+
+        &--p1{
+            left: 0;
+            top: 10rem;
+        }
+
+        &--p2{
+            right: 0;
+            top: 15rem;
+        }
+
+        &--p3{
+            left: 20%;
+            top: 20rem;
+        }
+
+        &:hover {
+            // its the same ish as setting a border but we using this to make a gap between the picture and the border
+            outline: 1.5rem solid $color-primary;
+            transform: scale(1.05) translateY(-.5rem);
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 20;
+        }
+    }
+
+    // composition:hover composition__photo:not(:hover)
+    // to make all the pictures not hovered a bit smaller
+    &:hover &__photo:not(:hover){
+        transform: scale(.95);
+    }
+}
