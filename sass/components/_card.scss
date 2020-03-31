@@ -1,0 +1,58 @@
+.card {
+    // you have to define the prospective on the parent element where the rotation happens
+    // basically the lower the value the more dramatic it is it is an experimentation to find the right look
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 50rem;
+
+    &__side{
+        background-color: orangered;
+        height: 50rem;
+        transition: all 1.3s ease;
+        color: #fff;
+        font-size: 2rem;
+        // absolute needed to lay the two sides on each other so they will look like the two side of the card
+        // also since we use position absolute we need to set the parent element position to position relative
+        position: absolute;
+        top: 0;
+        left: 0;
+        // width needs to be 100% to take up the whole space and not collapse
+        width: 100%;
+        // this property will hide the element if its facing backwards
+        backface-visibility: hidden;
+        border-radius: 3px;
+        box-shadow: $basic-shadow;
+
+        // defining the front and the back side of the card
+        &--front {
+            background-color: $color-white;
+        }
+
+        // the back side needs to start 180deg rotated already
+        &--back {
+            transform: rotateY(180deg);
+
+            &-1{
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }
+
+            &-2{
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            }
+
+            &-3{
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+            }
+        }
+    }
+
+    // now to different hoover affected needed depending on if its the front (180deg rotation to flip it to the back) or if its the back(rotating back to 0deg to flip it to the front)
+    &:hover &__side--front {
+        transform: rotateY(180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0deg);
+    }
+}
