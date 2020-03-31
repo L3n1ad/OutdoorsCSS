@@ -12,4 +12,15 @@
         rgba($color-primary-dark, 0.808))
         , url("../../img/nat-4.jpg");
     background-size: cover;
+    margin-top: -10rem;
+
+    // another way to do same as we did with clip for the header
+    transform: skewY(-7deg);
+
+    // all direct childs
+    // .section-features > *
+    & > * {
+        transform: skewY(7deg)
+    }
+
 }
