@@ -74,15 +74,15 @@
 
         &--1{
             // you van put multiple background image on the top of each other and then blend them together to reach the effect you want
-            background-image:linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../../img/nat-5.jpg);
+            background-image:linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
         }
 
         &--2{
-            background-image:linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../../img/nat-6.jpg);
+            background-image:linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../img/nat-6.jpg);
         }
 
         &--3{
-            background-image:linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../../img/nat-7.jpg);
+            background-image:linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7.jpg);
         }
 
     }
@@ -99,6 +99,8 @@
         right: 2rem;
         // giving it less widht will make the text collapse into two lines
         width: 75%;
+
+        
     }
 
     &__heading-span {
