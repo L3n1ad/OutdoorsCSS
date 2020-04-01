@@ -4,5 +4,35 @@
     box-shadow: 0 3rem 6rem rgba($color-black, .1);
     background-color: $color-white;
     border-radius: 3px;
-    
+    padding: 6rem;
+    // because the transform translateX would push the element into that padding so adding that 3rem making sure the the padding will stay the same on the left side
+    padding-left: 9rem;
+    font-size: $default-font-size;
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        // 50% fill be the half of the width and the height
+        // and 50% 50% for the position of the center of the circle
+        // float needed to it to work and the element need to have width and height
+        // webkit needed to cross browser support
+        // shape-outside just defines how the outside content should be wrapped around it
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+
+        // the circle needs to be defined seperately 
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        // transform is the best way to position floated elements
+        transform: translateX(-3rem);
+    }
+
+    &__img {
+        // responsive web design requires to every image to have a height
+        // having 100% because the parent element __shape already has a defined height
+        // it needs to be height because the img is wider then higher so with width it would cut the image and it wouldn't fill up the whole circle
+        height: 100%;
+    }
+
 }
