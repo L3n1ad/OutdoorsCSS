@@ -4,14 +4,12 @@
     perspective: 150rem;
     -moz-perspective: 150rem;
     position: relative;
-    height: 50rem;
+    height: 52rem;
 
     &__side{
         background-color: orangered;
-        height: 50rem;
+        height: 52rem;
         transition: all 1.3s ease;
-        color: #fff;
-        font-size: 2rem;
         // absolute needed to lay the two sides on each other so they will look like the two side of the card
         // also since we use position absolute we need to set the parent element position to position relative
         position: absolute;
@@ -22,6 +20,8 @@
         // this property will hide the element if its facing backwards
         backface-visibility: hidden;
         border-radius: 3px;
+        // it's needed because it hides the overflown image which makes the border-radius unvisible cause the picture covers it
+        overflow: hidden;
         box-shadow: $basic-shadow;
 
         // defining the front and the back side of the card
@@ -33,15 +33,15 @@
         &--back {
             transform: rotateY(180deg);
 
-            &-1{
+            &--1{
                 background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
             }
 
-            &-2{
+            &--2{
                 background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
             }
 
-            &-3{
+            &--3{
                 background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
             }
         }
@@ -49,10 +49,133 @@
 
     // now to different hoover affected needed depending on if its the front (180deg rotation to flip it to the back) or if its the back(rotating back to 0deg to flip it to the front)
     &:hover &__side--front {
-        transform: rotateY(180deg);
+        // it needs to be -180deg to move to the right direction and continue to flow of the turn
+        transform: rotateY(-180deg);
     }
 
     &:hover &__side--back {
         transform: rotateY(0deg);
+    }
+
+    // FRONT SIDE STYLING
+
+    &__picture {
+        background-size: cover;
+        // we have to define the hight because the element is empty
+        height: 20rem;
+        // blending the to image together, its a new css property so it can have cross browser issues
+        // it has multiple different possibilites to blend the two pictures together just as in PhotoShop
+        background-blend-mode: screen;
+         // to make sure its working across all browsers it needs to be before the other clip-path
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        // the cordinates from the corners starting from the top left corner
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+       
+
+        &--1{
+            // you van put multiple background image on the top of each other and then blend them together to reach the effect you want
+            background-image:linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../../img/nat-5.jpg);
+        }
+
+        &--2{
+            background-image:linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../../img/nat-6.jpg);
+        }
+
+        &--3{
+            background-image:linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../../img/nat-7.jpg);
+        }
+
+    }
+
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color: $color-white;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        // giving it less widht will make the text collapse into two lines
+        width: 75%;
+    }
+
+    &__heading-span {
+        padding: 1rem 1.5rem;
+        // to make the two lines of text into to block element to apply the padding to it, it won't work without webkit fix
+        // it basically applies all the styling to all boxes created by the element
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+
+        &--1{
+            background-image: linear-gradient(
+                to right bottom, 
+                rgba($color-secondary-light, .85), 
+                rgba($color-secondary-dark, .85));
+        }
+
+        &--2{
+            background-image: linear-gradient(
+                to right bottom, 
+                rgba($color-primary-light, .85), 
+                rgba($color-primary-dark, .85));
+        }
+
+        &--3{
+            background-image: linear-gradient(
+                to right bottom, 
+                rgba($color-tertiary-light, .85), 
+                rgba($color-tertiary-dark, .85));
+        }
+    }
+
+    &__details {
+        padding: 3rem;
+        
+        ul{
+            list-style: none;
+            width: 80%;
+            // to center the block element within a block element
+            margin: 0 auto;
+            
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+                
+
+                &:not(:last-child){
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
+        }
+    }
+
+    // BACK SIDE STYLING
+
+    &__cta {
+        position : absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+
+    &__price-box {
+        text-align: center;
+        margin-bottom: 8rem;
+        color: $color-white;
+    }
+
+    &__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__price-value {
+        font-size: 6rem;
+        font-weight: 100;
     }
 }
