@@ -31,6 +31,9 @@
         clip-path: circle(50% at 50% 50%);
         // transform is the best way to position floated elements
         transform: translateX(-3rem) skewX(12deg);
+        // to fix to issue when the pictures cats are visible in case of hovering or transforming the img
+        overflow: hidden;
+        position: relative;
     }
 
     &__img {
@@ -38,10 +41,39 @@
         // having 100% because the parent element __shape already has a defined height
         // it needs to be height because the img is wider then higher so with width it would cut the image and it wouldn't fill up the whole circle
         height: 100%;
+        transform: translateX(-4rem) scale(1.4);
+        backface-visibility: hidden;
+        transition: all .5s;
     }
 
     &__text {
         transform: skewX(12deg);
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+        transition: all .5s;
+        backface-visibility: hidden;
+    }
+
+    // css targeting -> when :hover is happening on story block we apply these changes on story__caption
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    // css targeting -> when :hover is happening on story block we apply these changes on story__img
+    &:hover &__img {
+        transform: translateX(-4rem) scale(1);
+        filter: blur(3px) brightness(80%);
     }
 
 }
