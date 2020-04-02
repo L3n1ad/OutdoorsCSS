@@ -73,6 +73,10 @@
         padding-left: 4.5rem;
     }
 
+    &__radio-input {
+        display: none;
+    }
+
     &__radio-button {
         height: 3rem;
         width: 3rem;
