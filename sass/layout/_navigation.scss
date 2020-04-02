@@ -124,7 +124,11 @@
             transition: all .2s;
         }
 
-        &::before { top: -.8rem;}
+        &::before { 
+            top: -.8rem; 
+            // this can tell where the animation center will be 
+            // transform-origin: right;
+            }
 
         &::after {top: .8rem;}
     }
@@ -137,5 +141,20 @@
 
     &__button:hover &__icon::after {
         top: 1rem;
+    }
+
+    // select the icon when the nav button clicked
+    &__checkbox:checked + &__button &__icon {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked + &__button &__icon::before {
+        top: 0;
+        transform: rotate(135deg);
+    }
+
+    &__checkbox:checked + &__button &__icon::after {
+        top: 0;
+        transform: rotate(-135deg);
     }
 }
