@@ -1,0 +1,62 @@
+.form {
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        font-size: 1.5rem;
+        //it will inherit it from all the elements because input elements not inherit the font familly
+        font-family: inherit;
+        color: inherit;
+        //giving more padding on the sides makes it look better
+        padding: 1.5rem 3rem;
+        border-radius: 2px;
+        background-color: rgba($color-white, 0.5);
+        border: none;
+        // add an invisible border to when the element in focus it won't add a none existing border which would cause the element under it the be pushed done
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        display: block;
+
+
+        // to get rid of that blue outline when the input is focused
+        &:focus {
+            outline: none;
+            // you always have to make sure that the focused input element is highlighted in way so people can see where they are on the page
+            box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+            border-bottom: 3px solid $color-primary;
+        }
+
+        // in css we van use invalid and valid sudo classes which comes from the html input when its validating if the user input is valid or not
+        // when the element is focused and its invalid do that
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+
+        // check browser compatibility
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
+    }
+
+    &__label{
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        // it needs to be a block to be able to use margin on it
+        display: block;
+        transition: all .3s;
+    }
+
+    // we using a sibling selector here + means direct json sibling which means the element on a the same level which comes right after in our case __input
+    // with ~ we can select sibling which our not directly coming after the targeted element
+    // also order is very important in html in our case label needs to be after input otherwise this selector won't work
+    &__input:placeholder-shown + &__label {
+        // opacity 0 needed to be able to animate the element
+        opacity: 0;
+        // needed to make the element actually disappear from the page not just making it invisible
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+}
