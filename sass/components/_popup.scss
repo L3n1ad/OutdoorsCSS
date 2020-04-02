@@ -1,0 +1,40 @@
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-black, .8);
+    z-index: 9999;
+
+    &__content {
+        @include absCenter;
+        width: 75%;
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        border-radius: 3px;
+        display: table;
+    }
+
+    &__left {
+        width: 33.3333333%;
+        // to display them side by side with the same hight
+        display: table-cell;
+    }
+
+    &__right {
+        width: 66.6666667%;
+        display: table-cell;
+        // to align the to sides
+        vertical-align: middle;
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+    }
+
+    &__text {
+
+    }
+}
