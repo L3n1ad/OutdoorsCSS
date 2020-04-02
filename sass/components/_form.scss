@@ -17,6 +17,7 @@
         border-bottom: 3px solid transparent;
         width: 90%;
         display: block;
+        transition: all 0.3s;
 
 
         // to get rid of that blue outline when the input is focused
@@ -46,7 +47,7 @@
         margin-top: .7rem;
         // it needs to be a block to be able to use margin on it
         display: block;
-        transition: all .3s;
+        transition: all .2s;
     }
 
     // we using a sibling selector here + means direct json sibling which means the element on a the same level which comes right after in our case __input
