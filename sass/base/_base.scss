@@ -7,8 +7,45 @@
 }
 
 html {
-    // This defines what 1rem is
-    font-size: 62.5%;
+    // This defines what 1rem is which is 10px (10px/16px = 62.5%)
+    font-size: 62.5%; 
+
+    // basic way to do media query with CSS (it would be included everywhere where media query required)
+    // Example can be seen in the compiled CSS
+    // @media (max-width: 600px) {
+    //     font-size: 50%;
+    // }
+
+    // // BASIC SASS
+    // @include respond-phone {
+    //     font-size: 50%;
+    // }
+
+    // ADVANCED SASS
+    // this is simple unnecessary to use because the next media query will have to same output so it will apply
+    // @include respond(phone) {
+    //     font-size: 50%;     
+    // }
+   
+    // width < 1200?
+    @include respond(tab-land) {
+        font-size: 56.25%;     // 1rem = 9px, 9/16 = 56.25%
+    }
+
+    // width < 900?
+     @include respond(tab-port) {
+        font-size: 50%;     // 1rem = 8px, 8/16 = 50%
+    }
+
+    // width < 600? JUST FOR TESTING
+    //  @include respond(phone) {
+    //     font-size: 30%;     // 1rem = 4.8, 4.8/16 = 50%
+    // }
+
+    // width > 1800?
+    @include respond(big-desktop) {
+        font-size: 75%;        // 1rem = 12px, 12/16 = 75%
+    }
 }
 
 body {
