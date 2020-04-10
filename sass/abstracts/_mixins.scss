@@ -12,3 +12,51 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+// MEDIA QUERY MANAGER
+
+// RANGES
+
+//  0 - 600px: PHONE
+//  600 - 600px: TABLET PORTRAIT
+//  900 - 1200px: TABLET landscape
+//  1200 - 1800px: NORMAL STYLE APPLY(DESKTOP FIRST APPROACH)
+//  1800 - ++px: BIG DESKTOP
+
+// BASIC SAsS way to do it
+
+// @mixin respond-phone {
+//     @media (max-width: 600px){ @content };
+// }
+
+
+/*
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px
+600px = 37.5rem
+*/
+
+@mixin respond($breakpoint) {
+
+// its important to use a relative measurments such as em
+    @if  $breakpoint == phone {
+        @media (max-width: 37.5em) {@content}; // 600px
+    }
+
+    @if  $breakpoint == tab-port {
+        @media (max-width: 56.25em) {@content}; // 900px
+    }
+
+    @if  $breakpoint == tab-land {
+        @media (max-width: 75em) {@content}; // 1200px
+    }
+
+    @if  $breakpoint == big-desktop {
+        @media (min-width: 112.5em) {@content}; // 1800px
+    }
+}
