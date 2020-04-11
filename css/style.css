@@ -783,7 +783,7 @@ body {
   @media (max-width: 37.5em) {
     .navigation__button {
       top: 2.5rem;
-      right: 5rem; } }
+      right: 3.5rem; } }
 
 .navigation__background {
   height: 6rem;
@@ -802,7 +802,7 @@ body {
   @media (max-width: 37.5em) {
     .navigation__background {
       top: 3rem;
-      right: 6rem; } }
+      right: 4rem; } }
 
 .navigation__nav {
   height: 100vh;
