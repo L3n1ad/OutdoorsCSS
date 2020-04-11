@@ -31,6 +31,10 @@
         width: 33.3333333%;
         // to display them side by side with the same hight
         display: table-cell;
+
+        @include respond(tab-land){
+            display: table-row;
+        }
     }
 
     &__right {
@@ -39,11 +43,20 @@
         // to align the to sides
         vertical-align: middle;
         padding: 3rem 5rem;
+
+        @include respond(tab-land){
+            text-align: center;
+        }
     }
 
     &__img {
         display: block;
         width: 100%;
+
+        @include respond(tab-land){
+            float: left;
+            width: 50%;
+        }
     }
 
     &__text {
