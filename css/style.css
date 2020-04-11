@@ -282,6 +282,9 @@ body {
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   transition: transform .3s; }
+  @media (max-width: 56.25em) {
+    .feature-box {
+      padding: 2rem; } }
   .feature-box:hover {
     transform: translateY(-1.5rem) scale(1.03); }
   .feature-box__icon {
@@ -291,6 +294,9 @@ body {
     background-image: linear-gradient(to right, #7ed56f, #28b485);
     -webkit-background-clip: text;
     color: transparent; }
+    @media (max-width: 56.25em) {
+      .feature-box__icon {
+        margin-bottom: 2rem; } }
 
 .card {
   perspective: 150rem;
@@ -384,6 +390,34 @@ body {
   .card__price-value {
     font-size: 6rem;
     font-weight: 100; }
+  @media (max-width: 56.25em) {
+    .card {
+      height: auto; }
+      .card__side {
+        height: auto;
+        position: relative;
+        border-radius: 3px; }
+        .card__side--back {
+          transform: rotateY(0deg); }
+      .card:hover .card__side--front {
+        transform: rotateY(0deg); }
+      .card__cta {
+        position: relative;
+        top: 0%;
+        left: 0%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center; }
+      .card__price-box {
+        text-align: center;
+        margin-bottom: 8rem;
+        color: #fff; }
+      .card__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase; }
+      .card__price-value {
+        font-size: 6rem;
+        font-weight: 100; } }
 
 .story {
   width: 75%;
