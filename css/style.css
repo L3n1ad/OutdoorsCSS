@@ -626,6 +626,9 @@ body {
       .popup__img {
         float: left;
         width: 50%; } }
+    @media (max-width: 75em) {
+      .popup__img:first-child {
+        transform: scale(1.07); } }
   .popup__text {
     font-size: 1.4rem;
     margin-bottom: 4rem;

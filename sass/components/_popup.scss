@@ -57,6 +57,13 @@
             float: left;
             width: 50%;
         }
+
+        &:first-child {
+            @include respond(tab-land){
+                transform: scale(1.07);
+            }
+            
+        }
     }
 
     &__text {
