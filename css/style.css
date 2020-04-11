@@ -392,32 +392,32 @@ body {
     font-weight: 100; }
   @media (max-width: 56.25em) {
     .card {
-      height: auto; }
+      height: auto;
+      border-radius: 3px;
+      background-color: #fff;
+      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
       .card__side {
         height: auto;
         position: relative;
-        border-radius: 3px; }
+        box-shadow: none; }
         .card__side--back {
-          transform: rotateY(0deg); }
+          transform: rotateY(0deg);
+          clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); }
       .card:hover .card__side--front {
         transform: rotateY(0deg); }
+      .card_details {
+        padding: 1rem 3rem; }
       .card__cta {
         position: relative;
         top: 0%;
         left: 0%;
-        transform: translate(-50%, -50%);
-        width: 90%;
-        text-align: center; }
+        transform: translate(0);
+        width: 100%;
+        padding: 7rem 4rem 4rem 4rem; }
       .card__price-box {
-        text-align: center;
-        margin-bottom: 8rem;
-        color: #fff; }
-      .card__price-only {
-        font-size: 1.4rem;
-        text-transform: uppercase; }
+        margin-bottom: 3rem; }
       .card__price-value {
-        font-size: 6rem;
-        font-weight: 100; } }
+        font-size: 6rem; } }
 
 .story {
   width: 75%;
@@ -768,7 +768,7 @@ body {
   @media (max-width: 37.5em) {
     .navigation__button {
       top: 2.5rem;
-      right: 3rem; } }
+      right: 5rem; } }
 
 .navigation__background {
   height: 6rem;
@@ -787,7 +787,7 @@ body {
   @media (max-width: 37.5em) {
     .navigation__background {
       top: 3rem;
-      right: 3.5rem; } }
+      right: 6rem; } }
 
 .navigation__nav {
   height: 100vh;

@@ -180,4 +180,59 @@
         font-size: 6rem;
         font-weight: 100;
     }
+
+
+
+
+    // -----------------------------------------
+    // REWRITE FOR RESPONSIVE DESIGN
+    // if you rewrite the whole component it is better to write a huge media query and include everything in it
+    // ---------------------------------------------
+
+    @include respond(tab-port) {
+        height: auto;
+        border-radius: 3px;
+        background-color: $color-white;
+        box-shadow: $basic-shadow;
+
+
+        &__side{
+            height: auto;
+            position: relative;
+            box-shadow: none;
+            // the back side needs to start 180deg rotated already
+            &--back {
+                transform: rotateY(0deg);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+            }
+        }
+
+        &:hover &__side--front {
+            transform: rotateY(0deg);
+        }
+
+        &_details {
+            padding: 1rem 3rem;
+        }
+
+        // BACK SIDE STYLING
+
+
+        &__cta {
+            position : relative;
+            top: 0%;
+            left: 0%;
+            transform: translate(0);
+            width: 100%;
+            padding: 7rem 4rem 4rem 4rem;
+        }
+
+        &__price-box {
+            margin-bottom: 3rem;
+        }
+
+        &__price-value {
+            font-size: 6rem;
+        }
+    }
 }
