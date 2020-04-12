@@ -81,9 +81,35 @@
                 </div>
                 <div class="col-1-of-2">
                     <div class="composition">
-                        <img src="img/nat-1-large.jpg" alt="photo 1" class="composition__photo composition__photo--p1">
+                        <!-- RESOLUTION SWITCHING -->
+                        <!-- with 300w and 1000w we inform the browser the images width without the need to download them -->
+                        <!-- then we have to calculate the picture width/view port width for our brake points -->
+                        <!-- and tell the broswer the % we got such as 20vw so the picture width is 20% of the view port width -->
+                        <!-- the last one is a default if none of the conditions apply -->
+                        <!-- you should include src in case if user use an older browser -->
+                        <img 
+                            srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+                            sizes="(max-width: 900px) 20vw, (max-width: 600) 30vw, 300px"
+                            alt="Photo 1"
+                            class="composition__photo composition__photo--p1"
+                            src="img/nat-1-large.jpg">
+                        <img 
+                            srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
+                            sizes="(max-width: 900px) 20vw, (max-width: 600) 30vw, 300px"
+                            alt="Photo 2"
+                            class="composition__photo composition__photo--p2"
+                            src="img/nat-2-large.jpg">
+                        <img 
+                            srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
+                            sizes="(max-width: 900px) 20vw, (max-width: 600) 30vw, 300px"
+                            alt="Photo 3"
+                            class="composition__photo composition__photo--p3"
+                            src="img/nat-3-large.jpg">
+
+
+                        <!-- <img src="img/nat-1-large.jpg" alt="photo 1" class="composition__photo composition__photo--p1">
                         <img src="img/nat-2-large.jpg" alt="photo 2" class="composition__photo composition__photo--p2">
-                        <img src="img/nat-3-large.jpg" alt="photo 3" class="composition__photo composition__photo--p3">
+                        <img src="img/nat-3-large.jpg" alt="photo 3" class="composition__photo composition__photo--p3"> -->
                     </div>
                 </div>
             </div>
@@ -388,7 +414,21 @@
 
     <footer class="footer">
         <div class="footer__logo-box">
-            <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+            <!-- art direction switching -->
+            <!-- we have to use at least one image and source in this case(multiple can be used) -->
+            <!-- media works as a media query in css and srcset will be the picture displayed under that media query -->
+            <!-- here we basically doing a density switchin inside of art direction switchin -->
+            <picture class="footer__logo">
+                <source srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" media="(max-width: 37.5rem)">
+                    <!-- using srcset we can define which picture should be used on which resolution (density switching)-->
+                    <!-- 1x means low resolution screen, 2x means high resolution screen(as many phisical pixel is used to display one pixel from our design) -->
+                    <!-- the browser will choose automatically which ever is better -->
+                    <img 
+                        srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" 
+                        alt="Full logo"
+                        class="footer__logo"
+                        src="img/logo-green-2x.png">
+            </picture>
         </div>
 
         <div class="row">
