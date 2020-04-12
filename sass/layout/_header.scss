@@ -5,13 +5,35 @@
         to right bottom, 
         rgba($color-primary-light, 0.8), 
         rgba($color-primary-dark, 0.808))
-        , url("../img/hero.jpg");
+        , url("../img/hero-small.jpg");
     background-size: cover;
     background-position: top;
     position: relative;
     // to make sure its working across all browsers it needs to be before the other clip-path
     -webkit-clip-path: polygon(0 0,100% 0,100%  75vh, 0 100%);
     clip-path: polygon(0 0,100% 0,100%  75vh, 0 100%);
+
+    // thats the resolution of a retina screen/high res
+    // basically load smaller img for any display and higher res for high res screens
+    // also only if the vw is larger then 600px because phones has high res screens but because of their width
+    // they don't require high res pictures
+    // and means and logical operator  , means or logical operator
+    @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em){
+        background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-primary-light, 0.8), 
+        rgba($color-primary-dark, 0.808))
+        , url("../img/hero.jpg");
+    }
+
+    // no matter of the screen res if its wider then 2000 load the bigger img
+    // @media (min-width: 2000px) {
+    //     background-image: linear-gradient(
+    //     to right bottom, 
+    //     rgba($color-secondary-light, 0.8), 
+    //     rgba($color-secondary-dark, 0.808))
+    //     , url("../img/hero.jpg");
+    // }
 
     @include respond(phone){
         -webkit-clip-path: polygon(0 0,100% 0,100%  85vh, 0 100%);
