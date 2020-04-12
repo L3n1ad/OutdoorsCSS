@@ -10,6 +10,11 @@
 
     @include respond(tab-port) {
         padding: 2rem;
+        margin: auto 10rem;
+    }
+
+    @include respond(phone) {
+        margin: auto 5rem;
     }
 
     &:hover {

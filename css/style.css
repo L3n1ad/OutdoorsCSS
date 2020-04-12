@@ -284,7 +284,11 @@ body {
   transition: transform .3s; }
   @media (max-width: 56.25em) {
     .feature-box {
-      padding: 2rem; } }
+      padding: 2rem;
+      margin: auto 10rem; } }
+  @media (max-width: 37.5em) {
+    .feature-box {
+      margin: auto 5rem; } }
   .feature-box:hover {
     transform: translateY(-1.5rem) scale(1.03); }
   .feature-box__icon {
@@ -395,7 +399,9 @@ body {
       height: auto;
       border-radius: 3px;
       background-color: #fff;
-      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+      width: 90%;
+      margin: auto 3rem; }
       .card__side {
         height: auto;
         position: relative;
