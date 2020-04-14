@@ -192,7 +192,14 @@
     // if you rewrite the whole component it is better to write a huge media query and include everything in it
     // ---------------------------------------------
 
-    @include respond(tab-port) {
+    // @include respond(tab-port) {
+
+    //  we have to use the original media query to be able to add extra conditions
+    // only screen and (hover: none) means apply it on touch screen devices(where user cannot hover)
+    // opposite would be hover: hover;
+    @media only screen and  (max-width: 56.25em),
+            only screen and (hover: none){
+
         height: auto;
         border-radius: 3px;
         background-color: $color-white;
