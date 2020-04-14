@@ -18,11 +18,14 @@
         // width needs to be 100% to take up the whole space and not collapse
         width: 100%;
         // this property will hide the element if its facing backwards
+        //  webkit needs to make it work on Safari
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         border-radius: 3px;
         // it's needed because it hides the overflown image which makes the border-radius unvisible cause the picture covers it
         overflow: hidden;
         box-shadow: $basic-shadow;
+
 
         // defining the front and the back side of the card
         &--front {
