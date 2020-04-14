@@ -29,22 +29,27 @@
         width: 15rem;
         height: 15rem;
         float: left;
-        // 50% fill be the half of the width and the height
-        // and 50% 50% for the position of the center of the circle
-        // float needed to it to work and the element need to have width and height
-        // webkit needed to cross browser support
-        // shape-outside just defines how the outside content should be wrapped around it
-        -webkit-shape-outside: circle(50% at 50% 50%);
-        shape-outside: circle(50% at 50% 50%);
 
-        // the circle needs to be defined seperately 
-        -webkit-clip-path: circle(50% at 50% 50%);
-        clip-path: circle(50% at 50% 50%);
         // transform is the best way to position floated elements
         transform: translateX(-3rem) skewX(12deg);
         // to fix to issue when the pictures cats are visible in case of hovering or transforming the img
         overflow: hidden;
         position: relative;
+        border-radius: 50%;
+
+        @supports (-webkit-clip-path: circle(0 at 0)) or (clip-path: circle(0 at 0)) {
+            // the circle needs to be defined seperately 
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+             // 50% fill be the half of the width and the height
+            // and 50% 50% for the position of the center of the circle
+            // float needed to it to work and the element need to have width and height
+            // webkit needed to cross browser support
+            // shape-outside just defines how the outside content should be wrapped around it
+            -webkit-shape-outside: circle(50% at 50% 50%);
+            shape-outside: circle(50% at 50% 50%);
+            border-radius: 0;
+        }
 
         @include respond(phone) {
             transform: translateX(-3rem) skewX(0);
