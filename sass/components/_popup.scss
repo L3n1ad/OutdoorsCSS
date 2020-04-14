@@ -4,11 +4,24 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba($color-black, .8);
+    background-color: rgba($color-black, .3);
     z-index: 9999;
     opacity: 0;
     visibility: hidden;
     transition: all .3s;
+    // -webkit-backdrop-filter: blur(10px);
+    // the blur or add any affects on what ever is behind this element
+    backdrop-filter: blur(10px);
+
+    // BROWSER SUPPORT
+    // @support query checks if the features are supported and it applies them only if its supported
+
+    @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+
+
 
     &__content {
         @include absCenter;
