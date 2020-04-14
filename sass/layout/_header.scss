@@ -23,14 +23,15 @@
     // also only if the vw is larger then 600px because phones has high res screens but because of their width
     // they don't require high res pictures
     // and means and logical operator  , means or logical operator
-    @media (min-resolution: 192dpi) and (min-width: 37.5em), 
-    // webkit fix for Safari older version
-        (-webkit-min-device-pixel-ratio: 2x) and (min-width: 37.5em), (min-width: 125em){
-        background-image: linear-gradient(
-        to right bottom, 
-        rgba($color-primary-light, 0.8), 
-        rgba($color-primary-dark, 0.808))
-        , url("../img/hero.jpg");
+    @media  only screen and  (min-resolution: 192dpi) and (min-width: 37.5em), 
+            // webkit fix for Safari older version
+            only screen and  (-webkit-min-device-pixel-ratio: 2x) and (min-width: 37.5em), 
+            only screen and  (min-width: 125em){
+                background-image: linear-gradient(
+                to right bottom, 
+                rgba($color-primary-light, 0.8), 
+                rgba($color-primary-dark, 0.808))
+                , url("../img/hero.jpg");
     }
 
     // no matter of the screen res if its wider then 2000 load the bigger img
