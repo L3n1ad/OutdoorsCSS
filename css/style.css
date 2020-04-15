@@ -477,7 +477,8 @@ body {
     transform: skewX(12deg); }
     @media only screen and (max-width: 37.5em) {
       .story__text {
-        transform: skewX(0); } }
+        transform: skewX(0);
+        hyphens: auto; } }
   .story__caption {
     position: absolute;
     top: 50%;
