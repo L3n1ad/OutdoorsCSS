@@ -35,7 +35,7 @@ npm run build:css
 
 ## Deployment
 
-The app is deployed with github pages on the following link: https://l3n1ad.github.io/OutdoorsCSS/#section-tours. For deployment please follow github pages instructions. 
+The app is deployed with github pages on the following link: https://l3n1ad.github.io/OutdoorsCSS/. For deployment please follow github pages instructions. 
 
 ## Built With
 
